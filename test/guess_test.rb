@@ -27,12 +27,25 @@ class GuessTest < Minitest::Test
   end
 
   def test_is_the_guess_correct?
-
     card = Card.new("Ace", "Hearts")
     guess = Guess.new("Ace of Hearts", card)
+    #binding.pry
     assert guess.correct?
   end
 
-  
+  def test_it_gives_feedback_for_correct_guess
+    #skip
+    card = Card.new("Ace", "Hearts")
+    guess = Guess.new("Ace of Hearts", card)
+    assert_equal "Correct.", guess.feedback
+  end
+
+  def test_it_gives_feedback_for_correct_guess
+    #skip
+    card = Card.new("2", "Hearts")
+    guess = Guess.new("Ace of Hearts", card)
+    assert_equal "Incorrect.", guess.feedback
+  end
+
 
 end

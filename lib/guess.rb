@@ -9,8 +9,16 @@ attr_accessor :response, :card
   end
 
   def correct?
-    response == card.value + " of " + card.suit
+    @response == card.value + " of " + card.suit
   end
 
+  def feedback
+    if
+    correct? == true
+    "Correct!"
+    else
+      "Incorrect."
+    end
+  end
 
 end
