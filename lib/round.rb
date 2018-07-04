@@ -4,15 +4,19 @@ require './lib/deck'
 require 'pry'
 
 class Round
-  attr_accessor :deck, :guesses
+  attr_accessor :deck, :guesses, :current_card
 
   def initialize(deck)
     @deck = deck
     @guesses = []
-
   end
 
-  @guesses[0]
+  def current_card
+    @deck.cards.first
+  end
+  # def current_card
+  #
+  # end
   # def
   #   @cards.unshift(@guess)
 end
