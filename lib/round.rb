@@ -12,6 +12,7 @@ class Round
 
   end
 
+  @guesses[0]
   # def
   #   @cards.unshift(@guess)
 end
