@@ -24,7 +24,7 @@ class RoundTest < Minitest::Test
     assert_equal [], round.guesses
   end
 
-  def test_current_card_is_first_card
+  def test_current_card_is_first_card_in_array
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -37,7 +37,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    assert_equal ({value: "3", suit: "Hearts"}), round.record_guess(record_of_guesses)
+    assert_instance_of Guess, round.record_guess({value: "3", suit: "Hearts"})
   end
 
 end

@@ -4,20 +4,25 @@ require './lib/deck'
 require 'pry'
 
 class Round
-  attr_accessor :deck, :guesses, :current_card, :record_of_guesses
+  attr_accessor :deck,
+                :guesses,
+                :number_correct
 
   def initialize(deck)
     @deck = deck
+    # @guesses are the ones that have already been guessed
     @guesses = []
-    @record_of_guesses = record_of_guesses
+    #round.record_guess() shovels (unshift) into an array at some point.
+    @number_correct = 0
+
   end
 
   def current_card
     @deck.cards.first
   end
-  # def current_card
-  #
-  # end
-  # def
-  #   @cards.unshift(@guess)
+
+  def record_guess(response)
+    @guess = Guess.new(response, current_card)
+
+  end
 end
