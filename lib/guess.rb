@@ -16,6 +16,7 @@ attr_accessor :response, :card
     if
     correct? == true
     "Correct!"
+    #this was originally returning 'nil' because it said <puts "Correct!">
     else
       "Incorrect."
     end
