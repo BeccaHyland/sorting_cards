@@ -14,7 +14,6 @@ class Round
     @guesses = []
     #round.record_guess() shovels (unshift) into an array at some point.
     @number_correct = 0
-
   end
 
   def current_card
@@ -22,7 +21,8 @@ class Round
   end
 
   def record_guess(response)
-    guess = Guess.new(response, current_card)
+    @response = response[:value] + " of " + response[:suit]
+    guess = Guess.new(@response, current_card)
     @guesses.unshift(guess)
     guess
   end

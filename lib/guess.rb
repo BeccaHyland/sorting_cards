@@ -15,7 +15,8 @@ attr_accessor :response, :card
 
   def feedback
     if
-    correct? == true
+    #correct? == true
+    @response == card.value + " of " + card.suit
     "Correct!"
     #this was originally returning 'nil' because it said <puts "Correct!">
     else
