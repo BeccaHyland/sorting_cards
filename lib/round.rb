@@ -22,7 +22,13 @@ class Round
   end
 
   def record_guess(response)
-    @guess = Guess.new(response, current_card)
-
+    guess = Guess.new(response, current_card)
+    @guesses.unshift(guess)
+    guess
   end
+
+  def count
+    @guesses.count
+  end
+
 end
