@@ -67,4 +67,24 @@ class RoundTest < Minitest::Test
     assert_equal 1, round.number_correct
   end
 
+  def test_round_guesses_for_next_current_card
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+    assert_instance_of Guess, round.record_guess({value: "Jack", suit: "Diamonds"})
+  end
+
+  def test_round_can_count_more_than_one_guess
+      card_1 = Card.new("3","Hearts")
+      card_2 = Card.new("4", "Clubs")
+      deck = Deck.new([card_1, card_2])
+      round = Round.new(deck)
+      round.record_guess({value: "3", suit: "Hearts"})
+      round.record_guess({value: "Jack", suit: "Diamonds"})
+      assert_equal 2, round.guesses.count
+  end
+
 end
