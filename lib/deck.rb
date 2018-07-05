@@ -19,10 +19,13 @@ class Deck
         swapped = false
         (deck_length-1).times do |thing|
           if deck |thing| > deck |thing + 1|
-
+            deck[thing], deck[thing + 1] = deck[thing + 1], deck[thing]
+            swapped = true
         end
       end
+      break if not swapped
     end
+    deck
   end
 
 end
