@@ -24,6 +24,9 @@ class Round
     @response = response[:value] + " of " + response[:suit]
     guess = Guess.new(@response, current_card)
     @guesses.unshift(guess)
+      if guesses.first.correct?
+        @number_correct += 1
+      end
     guess
   end
 
